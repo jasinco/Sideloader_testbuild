@@ -33,21 +33,26 @@ I am here to help! I don't want this to finish unmaintained!
 
 ```sh
 $ sideloader -h
-Usage: sideloader [-d] [-h] <command> [<args>]
+Usage: sideloader [-d] [--thread-count THREADCOUNT] [-h] <command> [<args>]
 
 Available commands:
   app-id         Manage App IDs.
   cert           Manage certificates.
+  device         Manage registered devices.
   install        Install an application on the device (renames the app, register
                  the identifier, sign and install automatically).
   sign           Sign an application bundle.
+  trollsign      Bypass Core-Trust with TrollStore 2's method (CVE-2023-41991).
   team           Manage teams.
   tool           Run Sideloader's tools.
   version        Print the version.
 
 Optional arguments:
   -d, --debug    Enable debug logging
-  -h, --help     Show this help message and exit                                                                                                                                                                       
+  --thread-count THREADCOUNT
+                 Numbers of threads to be used for signing the application
+                 bundle
+  -h, --help     Show this help message and exit                                                                                                                                                                      
 ```
 
 Table of Contents

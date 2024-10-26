@@ -193,6 +193,7 @@ string defaultConfigurationPath()
 
 import app_id;
 import certificate;
+import device;
 import install;
 // @(Command("login").Description("Log-in to your Apple account."))
 // @(Command("logout").Description("Log-out."))
@@ -234,8 +235,10 @@ int entryPoint(Commands commands)
         return commands.cmd.match!(
                 (AppIdCommand cmd) => cmd(),
                 (CertificateCommand cmd) => cmd(),
+                (DeviceCommand cmd) => cmd(),
                 (InstallCommand cmd) => cmd(),
                 (SignCommand cmd) => cmd(),
+                (TrollsignCommand cmd) => cmd(),
                 (TeamCommand cmd) => cmd(),
                 (ToolCommand cmd) => cmd(),
                 (VersionCommand cmd) => cmd(),
@@ -258,7 +261,7 @@ struct Commands
     uint threadCount = uint.max;
 
     @SubCommands
-    SumType!(AppIdCommand, CertificateCommand, InstallCommand, SignCommand, TeamCommand, ToolCommand, VersionCommand) cmd;
+    SumType!(AppIdCommand, CertificateCommand, DeviceCommand, InstallCommand, SignCommand, TrollsignCommand, TeamCommand, ToolCommand, VersionCommand) cmd;
 }
 
 mixin CLI!Commands.main!entryPoint;
